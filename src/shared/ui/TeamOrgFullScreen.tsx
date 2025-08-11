@@ -88,6 +88,7 @@ export default function TeamOrgFullScreen({
 
     // 연결선
     const [paths, setPaths] = useState<{ d: string; key: string }[]>([]);
+    const [pdTop, setPdTop] = useState<number>(0);
 
     // 좌표 안정화용
     const rafId = useRef<number | null>(null);
@@ -132,11 +133,15 @@ export default function TeamOrgFullScreen({
     const updateLines = useCallback(() => {
         if (!containerRef.current || !pmRef.current) return;
         const cont = containerRef.current.getBoundingClientRect();
-        const cFrom = anchorPoint(pmRef.current, cont);
+        const pmRect = pmRef.current.getBoundingClientRect();
 
+        const nextPdTop = pmRect.bottom - cont.top + 200; // PD 위치 로직
+        if (Math.abs(nextPdTop - pdTop) > 0.5) setPdTop(nextPdTop);
+
+        const cFrom = anchorPoint(pmRef.current, cont);
         const next: { d: string; key: string }[] = [];
 
-        // PM → FE/BE 리드, Planning
+        // PM - FE/BE 리드, Planning
         if (feLeadRef.current) {
             const to = anchorPoint(feLeadRef.current, cont, "left");
             next.push({
@@ -152,7 +157,7 @@ export default function TeamOrgFullScreen({
             });
         }
 
-        // FE 리드 → 멤버
+        // FE 리드 - 멤버
         if (feLeadRef.current) {
             const fFrom = anchorPoint(feLeadRef.current, cont);
             feMembers.forEach((m) => {
@@ -166,7 +171,7 @@ export default function TeamOrgFullScreen({
             });
         }
 
-        // BE 리드 → 멤버
+        // BE 리드 - 멤버
         if (beLeadRef.current) {
             const bFrom = anchorPoint(beLeadRef.current, cont);
             beMembers.forEach((m) => {
@@ -180,7 +185,7 @@ export default function TeamOrgFullScreen({
             });
         }
 
-        // BE 리드 → 멤버
+        // BE 리드 - 멤버
         pdMembers.forEach((m) => {
             const el = pdMemberRefs.current[m.id];
             if (!el) return;
@@ -191,13 +196,13 @@ export default function TeamOrgFullScreen({
             });
         });
 
-        // 안정화(직전 결과와 비교)
+        // 안정화
         const serialized = next.map((p) => p.d).join("|");
         if (serialized !== lastMeasureRef.current) {
             lastMeasureRef.current = serialized;
             setPaths(next);
         }
-    }, [anchorPoint, feMembers, beMembers]);
+    }, [anchorPoint, feMembers, beMembers, pdTop]);
 
     // 지연 측정 스케줄러
     const scheduleMeasure = useCallback(
@@ -273,7 +278,7 @@ export default function TeamOrgFullScreen({
     return (
         <div
             ref={containerRef}
-            className="relative h-screen w-screen overflow-auto"
+            className="relative max-h-[950px] min-h-[950px] min-w-[1600px] max-w-[1600px] overflow-auto"
         >
             {/* 연결선 오버레이 */}
             <svg className="pointer-events-none absolute inset-0 h-full w-full">
@@ -295,26 +300,32 @@ export default function TeamOrgFullScreen({
                 </AnimatePresence>
             </svg>
 
-            {/* 레이아웃: 팀 카드 제거, PM 스타일을 모든 요소에 적용 */}
+            {/* 레이아웃: PD는 절대 위치로 별도 렌더 */}
             <motion.div
-                className="grid min-h-full grid-cols-[1fr_520px_1fr] grid-rows-[auto_1fr_auto] items-start justify-center gap-16 px-10 py-14"
+                className="grid min-h-full grid-cols-[1fr_520px_1fr] grid-rows-[auto_1fr] items-start justify-center gap-16 px-10 py-14"
                 variants={containerV}
                 initial="hidden"
                 animate="show"
                 onAnimationComplete={handleAnimComplete}
             >
-                {/* 좌측: Frontend (팀원 ← 팀장) */}
+                {/* 좌측: fe */}
                 <motion.div
-                    className="w-full max-w-[520px] justify-self-end"
+                    className="relative w-full max-w-[520px] justify-self-end"
                     variants={popV}
                 >
-                    <div className="mb-2 text-xs font-medium text-muted-foreground">
-                        Frontend Team
+                    <div className="absolute -right-[135px] font-medium text-muted-foreground">
+                        Front-end Team
                     </div>
 
                     <div className="flex items-start justify-end gap-6">
-                        {/* 멤버(좌측) */}
-                        <div className="flex max-w-full flex-wrap items-start gap-6">
+                        {/* 멤버(좌측): 5명 이상이면 2열 Grid로 전환 */}
+                        <div
+                            className={
+                                feMembers.length >= 5
+                                    ? "grid max-w-full grid-cols-2 gap-6"
+                                    : "flex max-w-full flex-wrap items-start gap-6"
+                            }
+                        >
                             {feMembers.map((m) => (
                                 <motion.div key={m.id} variants={popV}>
                                     <ProfileUnit
@@ -344,13 +355,13 @@ export default function TeamOrgFullScreen({
                     <ProfileUnit person={pm} size="pm" avatarRef={pmRef} />
                 </motion.div>
 
-                {/* 우측: Backend (리드 → 멤버) */}
+                {/* 우측: be */}
                 <motion.div
-                    className="w-full max-w-[520px] justify-self-start"
+                    className="relative w-full max-w-[520px] justify-self-start"
                     variants={popV}
                 >
-                    <div className="mb-2 text-xs font-medium text-muted-foreground">
-                        Backend Team
+                    <div className="absolute -left-[113px] mb-2 font-medium text-muted-foreground">
+                        Back-end Team
                     </div>
 
                     <div className="flex items-start justify-start gap-6">
@@ -362,7 +373,14 @@ export default function TeamOrgFullScreen({
                             />
                         </motion.div>
 
-                        <div className="flex max-w-full flex-wrap items-start gap-6">
+                        {/* 멤버(우측): 5명 이상이면 2열 Grid로 전환 */}
+                        <div
+                            className={
+                                beMembers.length >= 5
+                                    ? "grid max-w-full grid-cols-2 gap-6"
+                                    : "flex max-w-full flex-wrap items-start gap-6"
+                            }
+                        >
                             {beMembers.map((m) => (
                                 <motion.div key={m.id} variants={popV}>
                                     <ProfileUnit
@@ -377,14 +395,21 @@ export default function TeamOrgFullScreen({
                         </div>
                     </div>
                 </motion.div>
+            </motion.div>
 
-                {/* 하단: Planning / Design (PM과 직접 연결) */}
-                <motion.div className="col-span-3" variants={popV}>
-                    <div className="mb-2 text-center text-xs font-medium text-muted-foreground">
-                        Planning / Design
+            {/* PD: 컨테이너 기준 절대 위치 */}
+            <motion.div
+                className="pointer-events-none absolute left-0 right-0"
+                style={{ top: pdTop }}
+                variants={popV}
+                initial="hidden"
+                animate="show"
+            >
+                <div className="pointer-events-auto">
+                    <div className="mb-2 text-center font-medium text-muted-foreground">
+                        Planning / Design Team
                     </div>
-                    <div className="flex items-center justify-center">
-                        {/* <RoleDot label="PD" avatarRef={planningRef} /> */}
+                    <div className="flex items-center justify-center gap-6">
                         {pdMembers.map((m) => (
                             <motion.div key={m.id} variants={popV}>
                                 <ProfileUnit
@@ -397,7 +422,7 @@ export default function TeamOrgFullScreen({
                             </motion.div>
                         ))}
                     </div>
-                </motion.div>
+                </div>
             </motion.div>
         </div>
     );
@@ -405,7 +430,7 @@ export default function TeamOrgFullScreen({
 
 /* ===================== UI: PM 형태로 통일 ===================== */
 
-/** PM 스타일 유닛: 큰 아바타 → 이름 | @github → 도메인 뱃지 (카드 없음) */
+/** PM 스타일 유닛: 큰 아바타 - 이름 | @github - 도메인 뱃지 */
 function ProfileUnit({
     person,
     size = "member",
@@ -422,8 +447,8 @@ function ProfileUnit({
         size === "pm"
             ? "h-24 w-24"
             : size === "lead"
-              ? "h-16 w-16"
-              : "h-12 w-12";
+              ? "h-20 w-20"
+              : "h-16 w-16";
 
     const nameClass =
         size === "pm" ? "text-lg" : size === "lead" ? "text-base" : "text-sm";
