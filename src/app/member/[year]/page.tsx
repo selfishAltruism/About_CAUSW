@@ -18,7 +18,7 @@ import {
 
 type Props = { params: { year: string } };
 
-export default function TeamOrgPage({ params }: Props) {
+export default function Page({ params }: Props) {
     const { year } = params;
 
     const team = year === "2024" ? TEAM_2025 : TEAM_2025;
@@ -26,7 +26,7 @@ export default function TeamOrgPage({ params }: Props) {
     return (
         <ScrollArea className="h-screen w-full">
             <div className="flex h-full w-full flex-col items-center justify-center">
-                <Breadcrumb className="-mb-8 pt-7">
+                <Breadcrumb className="z-20 -mb-8 pt-7">
                     <BreadcrumbList>
                         <BreadcrumbItem>
                             {year === "2024" ? (
