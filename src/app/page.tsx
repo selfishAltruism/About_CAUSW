@@ -38,14 +38,18 @@ export default function Home() {
 
                 <CauswPanelHandle />
             </div>
-            <div className="absolute top-[100vh] flex h-screen w-full items-center justify-center">
-                <Carousel className="w-full max-w-xs">
+            <div className="absolute top-[100vh] flex h-screen w-full flex-col">
+                <div className="flex h-[calc(20vh-15px)] flex-col pt-2">
+                    <strong className="text-3xl">기능 명칭</strong>
+                    <span>기능 설명</span>
+                </div>
+                <Carousel className="w-full">
                     <CarouselContent>
                         {Array.from({ length: 5 }).map((_, index) => (
                             <CarouselItem key={index}>
                                 <div className="p-1">
                                     <Card>
-                                        <CardContent className="flex aspect-square items-center justify-center p-6">
+                                        <CardContent className="flex h-[80vh] items-center justify-center p-6">
                                             <span className="text-4xl font-semibold">
                                                 {index + 1}
                                             </span>
