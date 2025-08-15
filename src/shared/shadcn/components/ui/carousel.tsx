@@ -32,7 +32,7 @@ type CarouselContextProps = {
 
 const CarouselContext = React.createContext<CarouselContextProps | null>(null);
 
-function useCarousel() {
+export function useCarousel() {
     const context = React.useContext(CarouselContext);
 
     if (!context) {
@@ -151,26 +151,89 @@ const Carousel = React.forwardRef<
 );
 Carousel.displayName = "Carousel";
 
-const CarouselContent = React.forwardRef<
-    HTMLDivElement,
-    React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => {
-    const { carouselRef, orientation } = useCarousel();
+type CarouselContentProps = React.HTMLAttributes<HTMLDivElement> & {
+    handleStepChange: (newStep: number) => void;
+};
 
-    return (
-        <div ref={carouselRef} className="overflow-hidden">
-            <div
-                ref={ref}
-                className={cn(
-                    "flex",
-                    orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
-                    className,
-                )}
-                {...props}
-            />
-        </div>
-    );
-});
+const CarouselContent = React.forwardRef<HTMLDivElement, CarouselContentProps>(
+    ({ className, handleStepChange, ...props }, ref) => {
+        const {
+            api,
+            carouselRef,
+            orientation,
+            scrollPrev,
+            scrollNext,
+            canScrollPrev,
+            canScrollNext,
+        } = useCarousel();
+
+        // shadcn 내부 step과 CaswsFeaturePanel 내부 step 간의 동기화.
+        React.useEffect(() => {
+            if (!api) return;
+            const onSelect = () => handleStepChange(api.selectedScrollSnap());
+            onSelect(); // 최초 동기화.
+            api.on("select", onSelect);
+            api.on("reInit", onSelect);
+            return () => {
+                api.off("select", onSelect);
+                api.off("reInit", onSelect);
+            };
+        }, [api, handleStepChange]);
+
+        // wheel 이벤트에 step 이동 핸들러 적용.
+        React.useEffect(() => {
+            const handleWheel = (e: WheelEvent) => {
+                if (
+                    window.scrollY > window.innerHeight - 10 &&
+                    window.scrollY < window.innerHeight + 10 &&
+                    api
+                ) {
+                    e.preventDefault();
+
+                    if (e.deltaY < 0 && canScrollPrev) {
+                        scrollPrev();
+                    }
+
+                    if (e.deltaY > 0 && canScrollNext) {
+                        scrollNext();
+                    }
+                } else {
+                    if (e.deltaY > 0) {
+                        window.scrollBy({
+                            top: window.innerHeight,
+                            left: 0,
+                            behavior: "smooth",
+                        });
+                    }
+                }
+            };
+
+            window.addEventListener("wheel", handleWheel, {
+                passive: false,
+            });
+
+            return () => {
+                window.removeEventListener("wheel", handleWheel);
+            };
+        }, [canScrollPrev, scrollPrev, scrollNext, canScrollNext]);
+
+        return (
+            <div ref={carouselRef} className="overflow-hidden">
+                <div
+                    ref={ref}
+                    className={cn(
+                        "flex",
+                        orientation === "horizontal"
+                            ? "-ml-4"
+                            : "-mt-4 flex-col",
+                        className,
+                    )}
+                    {...props}
+                />
+            </div>
+        );
+    },
+);
 CarouselContent.displayName = "CarouselContent";
 
 const CarouselItem = React.forwardRef<
@@ -207,8 +270,8 @@ const CarouselPrevious = React.forwardRef<
             variant={variant}
             size={size}
             className={cn(
-                "absolute h-12 w-12 rounded-lg",
-                canScrollPrev && "bg-[#00a9e7] text-white",
+                "absolute h-12 w-12 rounded-lg border-none bg-transparent shadow-none",
+                canScrollPrev && "text-sub",
                 orientation === "horizontal"
                     ? "left-4 top-1/2 -translate-y-1/2"
                     : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -218,7 +281,7 @@ const CarouselPrevious = React.forwardRef<
             onClick={scrollPrev}
             {...props}
         >
-            <ArrowLeft className="h-4 w-4" />
+            <ArrowLeft />
             <span className="sr-only">Previous slide</span>
         </Button>
     );
@@ -237,8 +300,8 @@ const CarouselNext = React.forwardRef<
             variant={variant}
             size={size}
             className={cn(
-                "absolute h-12 w-12 rounded-lg",
-                canScrollNext && "bg-[#00a9e7] text-white",
+                "absolute h-12 w-12 rounded-lg border-none bg-transparent shadow-none",
+                canScrollNext && "text-sub",
                 orientation === "horizontal"
                     ? "right-4 top-1/2 -translate-y-1/2"
                     : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",

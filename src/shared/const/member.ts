@@ -12,7 +12,7 @@ export const TEAM_2025 = {
             id: "fe1",
             name: "김영현",
             github: "???",
-            domains: ["대시보드", "컴포넌트 개발", "성능 최적화"],
+            domains: ["대시보드", "성능 최적화"],
         } as Person,
         members: [
             {
@@ -38,6 +38,12 @@ export const TEAM_2025 = {
                 name: "이영재",
                 github: "???",
                 domains: ["파일 업로드", "이미지 처리", "UI 애니메이션"],
+            },
+            {
+                id: "fe6",
+                name: "강민규",
+                github: "selfishAltruism",
+                domains: ["공각기동대"],
             },
         ] as Person[],
     },

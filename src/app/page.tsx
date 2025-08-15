@@ -1,30 +1,24 @@
-import { Card, CardContent } from "@/shared/shadcn/components/ui/card";
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "@/shared/shadcn/components/ui/carousel";
-
-import { CauswPanelHandle } from "@/entities/CauswPanelHandle";
 import Image from "next/image";
+
+import { CauswFeaturePanel } from "@/widgets/CauswFeaturePanel";
+import { CauswPanelHandle } from "@/entities/CauswPanelHandle";
 
 export default function Home() {
     return (
         <main className="relative flex w-full flex-col">
-            <div className="absolute left-[-256px] flex h-screen w-[calc(100vw-8px)] items-center justify-center bg-[#00a9e7]" />
+            <div className="absolute left-[-256px] flex h-screen w-[calc(100vw-8px)] items-center justify-center bg-sub" />
             <div className="relative z-10 flex h-screen w-full items-center justify-center">
-                <div className="flex w-full items-center justify-center">
-                    <div className="-mr-4 mt-8 flex flex-col items-end gap-1 text-xl font-bold text-white">
-                        <span>
-                            중앙대학교 소프트웨어 졸업생과 학부생을 잇고,
+                <div className="flex w-full flex-col-reverse justify-center p-10 xl:flex-row xl:items-center">
+                    <div className="-mt-5 flex flex-col items-end gap-1 text-xl font-bold text-white xl:-mr-4 xl:mt-16">
+                        <span className="xl:mr-[5.7px]">
+                            중앙대학교 소프트웨어학부에서
                         </span>
-                        <span className="-mr-[5.7px]">
-                            학부 활동과 자유로운 커뮤니케이션을 돕는 서비스.
+                        <span>선배의 자랑, 후배의 미래가 연결될 수 있도록</span>
+                        <span className="xl:-mr-[5.7px]">
+                            졸업생과 재학생을 잇는 네트워킹 서비스
                         </span>
-                        <span className="-mr-[5.7px] mt-2 text-4xl">
-                            CAUSW Web & App
+                        <span className="mt-2 text-5xl xl:-mr-[9px]">
+                            CAUSW
                         </span>
                     </div>
 
@@ -36,32 +30,10 @@ export default function Home() {
                     />
                 </div>
 
-                <CauswPanelHandle />
+                <CauswPanelHandle mode="MAIN" />
             </div>
             <div className="absolute top-[100vh] flex h-screen w-full flex-col">
-                <div className="flex h-[calc(20vh-15px)] flex-col pt-2">
-                    <strong className="text-3xl">기능 명칭</strong>
-                    <span>기능 설명</span>
-                </div>
-                <Carousel className="w-full">
-                    <CarouselContent>
-                        {Array.from({ length: 5 }).map((_, index) => (
-                            <CarouselItem key={index}>
-                                <div className="p-1">
-                                    <Card>
-                                        <CardContent className="flex h-[80vh] items-center justify-center p-6">
-                                            <span className="text-4xl font-semibold">
-                                                {index + 1}
-                                            </span>
-                                        </CardContent>
-                                    </Card>
-                                </div>
-                            </CarouselItem>
-                        ))}
-                    </CarouselContent>
-                    <CarouselPrevious />
-                    <CarouselNext />
-                </Carousel>
+                <CauswFeaturePanel />
             </div>
         </main>
     );

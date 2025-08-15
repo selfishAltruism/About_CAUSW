@@ -4,13 +4,26 @@ import "../index.css";
 
 import { SidebarProvider } from "@/shared/shadcn/components/ui/sidebar";
 import { AppSidebar } from "@/shared/ui/AppSidebar";
+import { Monitor } from "lucide-react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
     title: "CAUSWE",
-    description: "CAUSWE",
-    keywords: ["CAUSWE"],
+    description:
+        "중앙대학교 소프트웨어학부에서 선배의 자랑, 후배의 미래가 연결될 수 있도록 졸업생과 재학생을 잇는 네트워킹 서비스, CAUSW 서비스",
+    keywords: [
+        "CAUSWE",
+        "CAUSW",
+        "동문네트워크",
+        "중앙대학교",
+        "cau",
+        "소프트웨어학부",
+        "소프트웨어학",
+        "졸업생",
+        "재학생",
+        "ICT 위원회",
+    ],
 };
 
 export default function RootLayout({
@@ -21,6 +34,28 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${inter.className} font-sans`}>
+                <a
+                    href="https://causw.co.kr/"
+                    className="hover:animate-gradient fixed bottom-5 right-5 z-50 flex h-24 w-60 flex-col items-center justify-center rounded-xl border-0 bg-gradient-to-r from-[#00a9e797] to-[#018ec1] bg-[length:200%_200%] text-white shadow-md transition-all duration-500"
+                >
+                    <span className="text-sm">중앙대학교 소프트웨어학부</span>
+                    <span className="text-sm">졸업생 혹은 재학생이라면,</span>
+                    <strong className="text-[17px]">
+                        CAUSW 서비스바로가기
+                    </strong>
+                </a>
+                <div className="fixed z-50 flex h-screen w-screen items-center justify-center gap-2 bg-white md:hidden">
+                    <Monitor /> 모바일 뷰는 지원되지 않습니다.
+                    <span className="absolute bottom-4 text-gray-400">
+                        CAUSW 서비스 지원된다고 하던데..{" "}
+                        <a
+                            href="https://causw.co.kr/"
+                            className="text-blue-700 underline"
+                        >
+                            바로가기
+                        </a>
+                    </span>
+                </div>
                 <SidebarProvider>
                     <AppSidebar />
                     {children}

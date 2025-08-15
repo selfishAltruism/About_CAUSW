@@ -15,13 +15,14 @@ import {
     BreadcrumbPage,
     BreadcrumbSeparator,
 } from "@/shared/shadcn/components/ui/breadcrumb";
+import { UnderConstructionBlock } from "@/entities/UnderConstructionBlock";
 
 type Props = { params: { year: string } };
 
 export default function Page({ params }: Props) {
     const { year } = params;
 
-    const team = year === "2024" ? TEAM_2025 : TEAM_2025;
+    const team = year === "2024" ? TEAM_2025 : TEAM_2025; // TODO: 2024 추가 필요.
 
     return (
         <ScrollArea className="h-screen w-full">
@@ -49,14 +50,20 @@ export default function Page({ params }: Props) {
                         </BreadcrumbItem>
                     </BreadcrumbList>
                 </Breadcrumb>
-                <TeamOrgFullScreen
-                    pm={team.pm}
-                    feLead={team.fe.lead}
-                    feMembers={team.fe.members}
-                    beLead={team.be.lead}
-                    beMembers={team.be.members}
-                    pdMembers={team.pd.members}
-                />
+                {year === "2025" ? (
+                    <TeamOrgFullScreen
+                        pm={team.pm}
+                        feLead={team.fe.lead}
+                        feMembers={team.fe.members}
+                        beLead={team.be.lead}
+                        beMembers={team.be.members}
+                        pdMembers={team.pd.members}
+                    />
+                ) : (
+                    <div className="flex h-[calc(100vh-50px)] w-full items-center justify-center">
+                        <UnderConstructionBlock />
+                    </div>
+                )}
             </div>
             <ScrollBar orientation="horizontal" />
         </ScrollArea>
