@@ -271,7 +271,7 @@ const CarouselPrevious = React.forwardRef<
             size={size}
             className={cn(
                 "absolute h-12 w-12 rounded-lg border-none bg-transparent shadow-none",
-                canScrollPrev && "text-sub",
+                canScrollPrev && "text-[#00a9e7]",
                 orientation === "horizontal"
                     ? "left-4 top-1/2 -translate-y-1/2"
                     : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -301,7 +301,7 @@ const CarouselNext = React.forwardRef<
             size={size}
             className={cn(
                 "absolute h-12 w-12 rounded-lg border-none bg-transparent shadow-none",
-                canScrollNext && "text-sub",
+                canScrollNext && "text-[#00a9e7]",
                 orientation === "horizontal"
                     ? "right-4 top-1/2 -translate-y-1/2"
                     : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
