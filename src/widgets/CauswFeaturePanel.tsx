@@ -12,27 +12,33 @@ import {
 } from "@/shared/shadcn/components/ui/carousel";
 import { CauswPanelHandle } from "@/entities/CauswPanelHandle";
 import { UnderConstructionBlock } from "@/entities/UnderConstructionBlock";
+import Video from "@/entities/Video";
 
-const TITLE_ITEMS = [
+const ITEMS = [
     {
         main: "1. 어떤 기기에서도 쓸 수 있도록",
         sub: "Cross-Platform (Web & App) 지원",
+        content: <Video />,
     },
     {
         main: "2. 선배의 자랑, 후배의 미래가 이어질 수 있도록",
         sub: "경조사, 동문 수첩 기능 지원",
+        content: <UnderConstructionBlock className="text-[#7a7979]" />,
     },
     {
         main: "3. 재학생의 안정적인 학부 활동을 위해",
         sub: "중앙대학교 소프트웨어 학부 활동 지원",
+        content: <UnderConstructionBlock className="text-[#7a7979]" />,
     },
     {
         main: "4. 자유로운 커뮤니티가 될 수 있도록",
         sub: "게시판, 댓글을 넘어서 투표 기능 지원",
+        content: <UnderConstructionBlock className="text-[#7a7979]" />,
     },
     {
         main: "5. 안전한 커뮤니티가 될 수 있도록",
         sub: "중앙대학교 학부 졸업생 및 재학생 인증 시스템",
+        content: <UnderConstructionBlock className="text-[#7a7979]" />,
     },
 ];
 
@@ -54,21 +60,21 @@ export const CauswFeaturePanel = () => {
         <>
             <CauswPanelHandle mode="CAUSW_FEATURE_PANEL" />
             <div
-                className={`flex h-[calc(20vh-15px)] flex-col items-center justify-center gap-2 transition-opacity duration-200 ${
+                className={`flex h-[calc(20vh-15px)] flex-col items-center justify-center gap-2 pt-4 transition-opacity duration-200 ${
                     fade ? "opacity-100" : "opacity-0"
                 }`}
             >
-                <strong className="text-3xl">{TITLE_ITEMS[step].main}</strong>
-                <span className="ml-1 text-xl">{TITLE_ITEMS[step].sub}</span>
+                <strong className="text-3xl">{ITEMS[step].main}</strong>
+                <span className="ml-1 text-xl">{ITEMS[step].sub}</span>
             </div>
             <Carousel className="w-full">
                 <CarouselContent handleStepChange={handleStepChange}>
                     {Array.from({ length: 5 }).map((_, index) => (
                         <CarouselItem key={index}>
                             <div className="p-1">
-                                <Card>
+                                <Card className="bg-[#E6E8F3]">
                                     <CardContent className="flex h-[80vh] items-center justify-center p-6">
-                                        <UnderConstructionBlock />
+                                        {ITEMS[index].content}
                                     </CardContent>
                                 </Card>
                             </div>
