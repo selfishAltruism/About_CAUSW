@@ -10,15 +10,17 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/shared/shadcn/components/ui/carousel";
+
+import { CrossPlatformCardContent } from "@/entities/cards/CrossPlatformCardContent";
+
 import { CauswPanelHandle } from "@/entities/CauswPanelHandle";
 import { UnderConstructionBlock } from "@/entities/UnderConstructionBlock";
-import Video from "@/entities/Video";
 
-const ITEMS = [
+const CARDS = [
     {
         main: "1. 어떤 기기에서도 쓸 수 있도록",
         sub: "Cross-Platform (Web & App) 지원",
-        content: <Video />,
+        content: <CrossPlatformCardContent />,
     },
     {
         main: "2. 선배의 자랑, 후배의 미래가 이어질 수 있도록",
@@ -60,12 +62,12 @@ export const CauswFeaturePanel = () => {
         <>
             <CauswPanelHandle mode="CAUSW_FEATURE_PANEL" />
             <div
-                className={`flex h-[calc(20vh-15px)] flex-col items-center justify-center gap-2 pt-4 transition-opacity duration-200 ${
+                className={`flex h-[calc(20vh-15px)] flex-col items-center justify-center gap-1 pt-5 transition-opacity duration-200 ${
                     fade ? "opacity-100" : "opacity-0"
                 }`}
             >
-                <strong className="text-3xl">{ITEMS[step].main}</strong>
-                <span className="ml-1 text-xl">{ITEMS[step].sub}</span>
+                <strong className="text-2xl">{CARDS[step].main}</strong>
+                <span className="ml-1 text-lg">{CARDS[step].sub}</span>
             </div>
             <Carousel className="w-full">
                 <CarouselContent handleStepChange={handleStepChange}>
@@ -74,7 +76,7 @@ export const CauswFeaturePanel = () => {
                             <div className="p-1">
                                 <Card className="bg-[#E6E8F3]">
                                     <CardContent className="flex h-[80vh] items-center justify-center p-6">
-                                        {ITEMS[index].content}
+                                        {CARDS[index].content}
                                     </CardContent>
                                 </Card>
                             </div>
