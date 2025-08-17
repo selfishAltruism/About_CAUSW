@@ -17,7 +17,7 @@ import Video from "@/entities/Video";
 const ITEMS = [
     {
         main: "1. 어떤 기기에서도 쓸 수 있도록",
-        sub: "Cross-Platform (Web & App) 지원",
+        sub: "반응형 디자인과 PWA를 통한 Cross-Platform (Web & App) 지원",
         content: <Video />,
     },
     {
@@ -60,12 +60,12 @@ export const CauswFeaturePanel = () => {
         <>
             <CauswPanelHandle mode="CAUSW_FEATURE_PANEL" />
             <div
-                className={`flex h-[calc(20vh-15px)] flex-col items-center justify-center gap-2 pt-4 transition-opacity duration-200 ${
+                className={`flex h-[calc(17vh-15px)] flex-col items-center justify-center gap-2 pt-4 transition-opacity duration-200 ${
                     fade ? "opacity-100" : "opacity-0"
                 }`}
             >
-                <strong className="text-3xl">{ITEMS[step].main}</strong>
-                <span className="ml-1 text-xl">{ITEMS[step].sub}</span>
+                <strong className="text-[22px]">{ITEMS[step].main}</strong>
+                <span className="ml-1 text-lg">{ITEMS[step].sub}</span>
             </div>
             <Carousel className="w-full">
                 <CarouselContent handleStepChange={handleStepChange}>
@@ -73,7 +73,7 @@ export const CauswFeaturePanel = () => {
                         <CarouselItem key={index}>
                             <div className="p-1">
                                 <Card className="bg-[#E6E8F3]">
-                                    <CardContent className="flex h-[80vh] items-center justify-center p-6">
+                                    <CardContent className="flex h-[83vh] items-center justify-center p-9 pt-12">
                                         {ITEMS[index].content}
                                     </CardContent>
                                 </Card>

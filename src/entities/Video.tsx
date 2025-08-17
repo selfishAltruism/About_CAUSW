@@ -50,23 +50,21 @@ export default function ForwardLoopVideo({
     }, [playbackRate]);
 
     return (
-        <div className="p-3">
-            <video
-                ref={ref}
-                muted
-                autoPlay
-                loop
-                playsInline
-                preload="auto"
-                controls={false}
-                src={src}
-                style={{
-                    display: "block",
-                    border: "none",
-                    outline: "none",
-                    background: "transparent",
-                }}
-            />
-        </div>
+        <video
+            ref={ref}
+            muted
+            autoPlay
+            loop
+            playsInline
+            preload="auto"
+            controls={false}
+            src={src}
+            style={{
+                display: "block",
+                border: "none",
+                outline: "none",
+                background: "transparent",
+            }}
+        />
     );
 }
