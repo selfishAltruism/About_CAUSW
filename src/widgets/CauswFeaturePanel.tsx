@@ -16,28 +16,33 @@ import Video from "@/entities/Video";
 
 const ITEMS = [
     {
-        main: "1. 어떤 기기에서도 쓸 수 있도록",
-        sub: "반응형 디자인과 PWA를 통한 Cross-Platform (Web & App) 지원",
-        content: <Video />,
+        main: "1. 어떤 기기에서도 쓸 수 있도록,",
+        sub: "반응형 디자인과 PWA를 통한 Cross-Platform(Web & App) 지원.",
+        content: (
+            <Video
+                src="causw_features/response_design_2.mp4"
+                playbackRate={4}
+            />
+        ),
     },
     {
-        main: "2. 선배의 자랑, 후배의 미래가 이어질 수 있도록",
-        sub: "경조사, 동문 수첩 기능 지원",
+        main: "2. 선배의 자랑, 후배의 미래가 이어질 수 있도록,",
+        sub: "경조사, 동문 수첩 기능 지원.",
         content: <UnderConstructionBlock className="text-[#7a7979]" />,
     },
     {
-        main: "3. 재학생의 안정적인 학부 활동을 위해",
-        sub: "중앙대학교 소프트웨어 학부 활동 지원",
+        main: "3. 재학생의 안정적인 학부 활동을 위해,",
+        sub: "중앙대학교 소프트웨어 학부 활동 지원.",
         content: <UnderConstructionBlock className="text-[#7a7979]" />,
     },
     {
-        main: "4. 자유로운 커뮤니티가 될 수 있도록",
-        sub: "게시판, 댓글을 넘어서 투표 기능 지원",
+        main: "4. 자유로운 커뮤니티가 될 수 있도록,",
+        sub: "게시판, 댓글을 넘어서 투표 기능 지원.",
         content: <UnderConstructionBlock className="text-[#7a7979]" />,
     },
     {
-        main: "5. 안전한 커뮤니티가 될 수 있도록",
-        sub: "중앙대학교 학부 졸업생 및 재학생 인증 시스템",
+        main: "5. 안전한 커뮤니티가 될 수 있도록,",
+        sub: "중앙대학교 학부 졸업생 및 재학생 인증 시스템.",
         content: <UnderConstructionBlock className="text-[#7a7979]" />,
     },
 ];
@@ -60,12 +65,14 @@ export const CauswFeaturePanel = () => {
         <>
             <CauswPanelHandle mode="CAUSW_FEATURE_PANEL" />
             <div
-                className={`flex h-[calc(17vh-15px)] flex-col items-center justify-center gap-2 pt-4 transition-opacity duration-200 ${
+                className={`flex h-[calc(17vh-15px)] flex-col items-start justify-center gap-2 pl-1 pt-6 transition-opacity duration-200 ${
                     fade ? "opacity-100" : "opacity-0"
                 }`}
             >
                 <strong className="text-[22px]">{ITEMS[step].main}</strong>
-                <span className="ml-1 text-lg">{ITEMS[step].sub}</span>
+                <span className="ml-1 text-lg text-[#5b5c60]">
+                    {ITEMS[step].sub}
+                </span>
             </div>
             <Carousel className="w-full">
                 <CarouselContent handleStepChange={handleStepChange}>
@@ -73,7 +80,7 @@ export const CauswFeaturePanel = () => {
                         <CarouselItem key={index}>
                             <div className="p-1">
                                 <Card className="bg-[#E6E8F3]">
-                                    <CardContent className="flex h-[83vh] items-center justify-center p-9 pt-12">
+                                    <CardContent className="flex h-[83vh] items-center justify-center p-12 pt-14">
                                         {ITEMS[index].content}
                                     </CardContent>
                                 </Card>
