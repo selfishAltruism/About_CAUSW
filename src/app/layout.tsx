@@ -43,6 +43,7 @@ export default function RootLayout({
                         CAUSW 서비스 바로가기
                     </strong>
                 </a>
+
                 <div className="fixed z-50 flex h-screen w-screen items-center justify-center gap-2 bg-white text-[10px] md:hidden">
                     <Monitor /> 모바일 뷰는 지원되지 않습니다.
                     <span className="absolute bottom-4 text-gray-400">
@@ -55,6 +56,7 @@ export default function RootLayout({
                         </a>
                     </span>
                 </div>
+
                 <SidebarProvider>
                     <AppSidebar />
                     {children}

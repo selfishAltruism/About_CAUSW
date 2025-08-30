@@ -13,6 +13,7 @@ import {
 import { CauswPanelHandle } from "@/entities/CauswPanelHandle";
 import { UnderConstructionBlock } from "@/entities/UnderConstructionBlock";
 import Video from "@/entities/Video";
+/* import { CauswFeaturePanelSecondCard } from "@/entities/CauswFeaturePanelSecondCard"; */
 
 const ITEMS = [
     {
@@ -24,7 +25,7 @@ const ITEMS = [
         sub: "반응형 디자인과 PWA를 통한 Cross-Platform(Web & App) 지원",
         content: (
             <Video
-                src="causw_features/response_design_2.mp4"
+                src="/causw_features/response_design_2.mp4"
                 playbackRate={4}
             />
         ),
@@ -36,7 +37,7 @@ const ITEMS = [
                 이어질 수 있도록,
             </>
         ),
-        sub: "경조사, 동문 수첩 기능 지원",
+        sub: "동문 수첩, 경조사 기능 지원",
         content: <UnderConstructionBlock className="text-[#7a7979]" />,
     },
     {
@@ -93,9 +94,9 @@ export const CauswFeaturePanel = () => {
                     fade ? "opacity-100" : "opacity-0"
                 }`}
             >
-                <strong className="text-[24px]">{step + 1}.</strong>
-                <strong className="text-[23px]">{ITEMS[step].main}</strong>
-                <span className="text-[21px] text-[#5b5c60]">
+                <strong className="text-[20px]">{step + 1}.</strong>
+                <strong className="text-[20px]">{ITEMS[step].main}</strong>
+                <span className="text-[17px] text-[#5b5c60]">
                     {ITEMS[step].sub}
                 </span>
             </div>

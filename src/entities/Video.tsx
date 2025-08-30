@@ -8,7 +8,7 @@ type Props = {
 };
 
 export default function Video({
-    src = "causw_features/response_design_1.mp4",
+    src = "/causw_features/response_design_1.mp4",
     playbackRate = 1,
 }: Props) {
     const ref = useRef<HTMLVideoElement | null>(null);
