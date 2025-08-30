@@ -9,11 +9,10 @@ import { Monitor } from "lucide-react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "CAUSWE",
+    title: "About CAUSW",
     description:
         "중앙대학교 소프트웨어학부에서 선배의 자랑, 후배의 미래가 연결될 수 있도록 졸업생과 재학생을 잇는 네트워킹 서비스, CAUSW 서비스",
     keywords: [
-        "CAUSWE",
         "CAUSW",
         "동문네트워크",
         "중앙대학교",
@@ -36,7 +35,7 @@ export default function RootLayout({
             <body className={`${inter.className} font-sans`}>
                 <a
                     href="https://causw.co.kr/"
-                    className="fixed bottom-4 right-3 z-40 flex h-24 w-60 flex-col items-center justify-center rounded-xl border-0 bg-gradient-to-r from-[#00a9e797] to-[#018ec1] bg-[length:200%_200%] text-white shadow-2xl transition-all duration-500 hover:animate-gradient"
+                    className="fixed bottom-4 right-3 z-40 flex h-24 w-60 flex-col items-center justify-center rounded-xl border-0 bg-gradient-to-r from-[#388cf9] to-[#005cd3] bg-[length:200%_200%] text-white shadow-2xl transition-all duration-500 hover:animate-gradient"
                 >
                     <span className="text-sm">중앙대학교 소프트웨어학부</span>
                     <span className="text-sm">졸업생 혹은 재학생이라면,</span>

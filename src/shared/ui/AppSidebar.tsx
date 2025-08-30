@@ -37,7 +37,9 @@ export function AppSidebar() {
         <Sidebar variant="floating">
             <SidebarContent>
                 <SidebarGroup>
-                    <SidebarGroupLabel>CAUSWE</SidebarGroupLabel>
+                    <SidebarGroupLabel className="text-sub">
+                        About CAUSW
+                    </SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
                             {items.map((item) => (
