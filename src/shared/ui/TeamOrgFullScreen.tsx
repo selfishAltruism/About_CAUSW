@@ -313,7 +313,7 @@ export default function TeamOrgFullScreen({
                     className="relative w-full max-w-[520px] justify-self-end"
                     variants={popV}
                 >
-                    <div className="absolute -right-[135px] font-medium text-muted-foreground">
+                    <div className="absolute -right-[90px] font-medium text-muted-foreground">
                         Front-end Team
                     </div>
 
@@ -440,8 +440,10 @@ function ProfileUnit({
     size?: "pm" | "lead" | "member";
     avatarRef?: React.Ref<HTMLDivElement>;
 }) {
-    const initials = person.name.slice(0, 2).toUpperCase();
     const gh = person.github?.replace(/^@/, "");
+    const initials = gh
+        ? gh.slice(0, 4).toUpperCase()
+        : person.name.slice(0, 3).toUpperCase();
 
     const avatarClass =
         size === "pm"
@@ -462,7 +464,9 @@ function ProfileUnit({
                     {person.avatarUrl ? (
                         <AvatarImage src={person.avatarUrl} alt={person.name} />
                     ) : (
-                        <AvatarFallback>{initials}</AvatarFallback>
+                        <AvatarFallback className="text-gray-400">
+                            {initials}
+                        </AvatarFallback>
                     )}
                 </Avatar>
             </div>
@@ -472,11 +476,8 @@ function ProfileUnit({
                     {person.name}
                 </div>
                 <div className="mt-0.5 text-xs text-muted-foreground">
-                    {person.name}
                     {gh ? (
                         <>
-                            {" "}
-                            |{" "}
                             <a
                                 href={`https://github.com/${gh}`}
                                 target="_blank"
@@ -499,7 +500,7 @@ function ProfileUnit({
                         <Badge
                             key={i}
                             variant="secondary"
-                            className="px-1.5 py-0"
+                            className="bg-sub px-1.5 py-0 text-white hover:bg-sub"
                         >
                             {d}
                         </Badge>

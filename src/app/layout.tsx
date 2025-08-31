@@ -44,8 +44,8 @@ export default function RootLayout({
                     </strong>
                 </a>
 
-                <div className="fixed z-50 flex h-screen w-screen items-center justify-center gap-2 bg-white text-[10px] md:hidden">
-                    <Monitor /> 모바일 뷰는 지원되지 않습니다.
+                <div className="fixed z-[10000] flex h-screen w-screen flex-col items-center justify-center gap-2 bg-white text-[10px] xl:hidden">
+                    <Monitor size={35} /> 모바일 뷰는 지원되지 않습니다.
                     <span className="absolute bottom-4 text-gray-400">
                         CAUSW 서비스 지원된다고 하던데..{" "}
                         <a

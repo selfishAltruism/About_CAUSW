@@ -16,20 +16,32 @@ import {
 // Menu items.
 const items = [
     {
-        title: "What is CAUSW?",
+        title: (
+            <>
+                What is <span className="text-sub">CAUSW?</span>
+            </>
+        ),
         url: "/",
         icon: Home,
     },
     {
-        title: "Who is making CAUSW?",
-        url: "/member/2025",
+        title: (
+            <>
+                Who is<span className="text-sub"> Making</span> CAUSW?
+            </>
+        ),
+        url: "/member/2025-1",
         icon: User2,
     },
-    {
-        title: "Who supported CAUSW?",
+    /*     {
+        title: (
+            <>
+                Who <span className="text-sub"> Supported</span> CAUSW?
+            </>
+        ),
         url: "/ccssaa",
         icon: Building2,
-    },
+    }, */
 ];
 
 export function AppSidebar() {
@@ -37,13 +49,11 @@ export function AppSidebar() {
         <Sidebar variant="floating">
             <SidebarContent>
                 <SidebarGroup>
-                    <SidebarGroupLabel className="text-sub">
-                        About CAUSW
-                    </SidebarGroupLabel>
+                    <SidebarGroupLabel>About CAUSW</SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
                             {items.map((item) => (
-                                <SidebarMenuItem key={item.title}>
+                                <SidebarMenuItem key={item.url}>
                                     <SidebarMenuButton asChild>
                                         <Link href={item.url}>
                                             <item.icon />
