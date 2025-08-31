@@ -91,12 +91,14 @@ export const CauswFeaturePanelMobileCard = ({ step }: { step: number }) => {
                         width={300}
                         height={300}
                         alt="main_img_1"
+                        className="z-10 -mr-48 mt-10 shadow-lg shadow-[#00000066] 2xl:mr-0 2xl:mt-0"
                     />
                     <Image
                         src={`/causw_features/${step + 1}_2.png`}
                         width={300}
                         height={300}
                         alt="main_img_2"
+                        className="mb-10 shadow-lg shadow-[#00000066] 2xl:mb-0"
                     />
                 </div>
             </div>
@@ -108,12 +110,14 @@ export const CauswFeaturePanelMobileCard = ({ step }: { step: number }) => {
                         width={300}
                         height={300}
                         alt="main_img_3"
+                        className="z-10 -mr-48 mt-10 shadow-lg shadow-[#00000066] 2xl:mr-0 2xl:mt-0"
                     />
                     <Image
                         src={`/causw_features/${step + 1}_4.png`}
                         width={300}
                         height={300}
                         alt="main_img_4"
+                        className="mb-10 shadow-lg shadow-[#00000066] 2xl:mb-0"
                     />
                 </div>
 

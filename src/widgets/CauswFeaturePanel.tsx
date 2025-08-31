@@ -10,10 +10,12 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/shared/shadcn/components/ui/carousel";
+
 import { CauswPanelHandle } from "@/entities/CauswPanelHandle";
 import { UnderConstructionBlock } from "@/entities/UnderConstructionBlock";
 import Video from "@/entities/Video";
 import { CauswFeaturePanelMobileCard } from "@/entities/CauswFeaturePanelMobileCard";
+import { CauswFeaturePanelPcCard } from "@/entities/CauswFeaturePanelPcCard";
 
 const ITEMS = [
     {
@@ -68,7 +70,7 @@ const ITEMS = [
             </>
         ),
         sub: "중앙대학교 학부 졸업생 및 재학생 인증 시스템",
-        content: <UnderConstructionBlock className="text-[#7a7979]" />,
+        content: <CauswFeaturePanelPcCard step={4} />,
     },
 ];
 
