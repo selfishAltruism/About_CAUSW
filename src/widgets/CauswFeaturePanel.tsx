@@ -13,7 +13,7 @@ import {
 import { CauswPanelHandle } from "@/entities/CauswPanelHandle";
 import { UnderConstructionBlock } from "@/entities/UnderConstructionBlock";
 import Video from "@/entities/Video";
-/* import { CauswFeaturePanelSecondCard } from "@/entities/CauswFeaturePanelSecondCard"; */
+import { CauswFeaturePanelMobileCard } from "@/entities/CauswFeaturePanelMobileCard";
 
 const ITEMS = [
     {
@@ -26,7 +26,7 @@ const ITEMS = [
         content: (
             <Video
                 src="/causw_features/response_design_2.mp4"
-                playbackRate={4}
+                playbackRate={3}
             />
         ),
     },
@@ -38,7 +38,7 @@ const ITEMS = [
             </>
         ),
         sub: "동문 수첩, 경조사 기능 지원",
-        content: <UnderConstructionBlock className="text-[#7a7979]" />,
+        content: <CauswFeaturePanelMobileCard step={1} />,
     },
     {
         main: (
@@ -48,7 +48,7 @@ const ITEMS = [
             </>
         ),
         sub: "중앙대학교 소프트웨어 학부 활동 지원",
-        content: <UnderConstructionBlock className="text-[#7a7979]" />,
+        content: <CauswFeaturePanelMobileCard step={2} />,
     },
     {
         main: (
@@ -58,7 +58,7 @@ const ITEMS = [
             </>
         ),
         sub: "게시판, 댓글을 넘어서 투표 기능 지원",
-        content: <UnderConstructionBlock className="text-[#7a7979]" />,
+        content: <CauswFeaturePanelMobileCard step={3} />,
     },
     {
         main: (
