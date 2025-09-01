@@ -36,7 +36,12 @@ export const TEAM_2025_1 = {
             name: "한성재",
             github: "bingle625",
             avatarUrl: "/avatar/bingle625.jpg",
-            domains: ["BE 파트장", "모니터링 시스템", "CI / CD", "TDD"],
+            domains: [
+                "BE 파트장",
+                "모니터링 시스템",
+                "CI / CD",
+                "Code Assurance",
+            ],
         } as Person,
         members: [
             {
@@ -83,7 +88,7 @@ export const TEAM_2025_1 = {
                 id: "fe3",
                 name: "라희수",
                 github: "Head-ddy",
-                domains: ["신고 / 차단"],
+                domains: ["신고 / 차단", "사물함", "유저 관리"],
             },
             {
                 id: "fe4",
