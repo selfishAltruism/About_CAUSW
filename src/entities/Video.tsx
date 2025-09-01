@@ -75,21 +75,23 @@ export default function Video({ src, playbackRate = 1 }: Props) {
     }, [playbackRate, src]);
 
     return (
-        <video
-            ref={ref}
-            muted
-            autoPlay
-            loop
-            playsInline
-            preload="auto"
-            controls={false}
-            src={src}
-            style={{
-                display: "block",
-                border: "none",
-                outline: "none",
-                background: "transparent",
-            }}
-        />
+        <div className="max-w-[1300px]">
+            <video
+                ref={ref}
+                muted
+                autoPlay
+                loop
+                playsInline
+                preload="auto"
+                controls={false}
+                src={src}
+                style={{
+                    display: "block",
+                    border: "none",
+                    outline: "none",
+                    background: "transparent",
+                }}
+            />
+        </div>
     );
 }

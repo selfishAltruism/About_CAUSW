@@ -26,7 +26,7 @@ export const TEAM_2025_1 = {
                 id: "pd3",
                 name: "이해찬",
                 github: "",
-                domains: ["브랜딩", "앱 UI", "동문수첩 UI"],
+                domains: ["App", "브랜딩", "동문수첩"],
             },
         ] as Person[],
     },
@@ -60,7 +60,8 @@ export const TEAM_2025_1 = {
                 id: "be4",
                 name: "이우진",
                 github: "riadan710",
-                domains: ["트래픽 테스트", "경조사", "유저 관리"],
+                avatarUrl: "/avatar/riadan710.jpg",
+                domains: ["트래픽 테스트", "경조사", "유저 관리", "사물함"],
             },
             {
                 id: "be5",
