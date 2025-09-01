@@ -1,4 +1,4 @@
-import { Home, User2, Building2 } from "lucide-react";
+import { Home, User2, Building2, Map } from "lucide-react";
 import Link from "next/link";
 
 import {
@@ -18,16 +18,16 @@ const items = [
     {
         title: (
             <>
-                What is <span className="text-sub">CAUSW?</span>
+                What is <span className="text-sub">동네: CAUSW</span>?
             </>
         ),
         url: "/",
-        icon: Home,
+        icon: Map,
     },
     {
         title: (
             <>
-                Who is<span className="text-sub"> Making</span> CAUSW?
+                Who is Making<span className="text-sub"> 동네: CAUSW</span>?
             </>
         ),
         url: "/member/2025-1",
@@ -49,13 +49,16 @@ export function AppSidebar() {
         <Sidebar variant="floating">
             <SidebarContent>
                 <SidebarGroup>
-                    <SidebarGroupLabel>About CAUSW</SidebarGroupLabel>
+                    <SidebarGroupLabel>About 동네: CAUSW</SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
                             {items.map((item) => (
                                 <SidebarMenuItem key={item.url}>
                                     <SidebarMenuButton asChild>
-                                        <Link href={item.url}>
+                                        <Link
+                                            href={item.url}
+                                            className="text-[13px]"
+                                        >
                                             <item.icon />
                                             <span>{item.title}</span>
                                         </Link>

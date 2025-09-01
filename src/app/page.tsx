@@ -7,18 +7,21 @@ export default function Home() {
     return (
         <main className="relative flex w-full flex-col">
             <div className="absolute left-[-256px] top-0 z-[9998] flex h-screen w-[calc(100vw-8px)] items-center justify-center bg-sub">
-                <div className="z-[9999] flex flex-col items-center gap-1 text-xl text-white">
+                <div className="z-[9999] flex flex-col items-center gap-1 text-[20.5px] text-white">
                     <span>중앙대학교 소프트웨어학부에서</span>
                     <span>선배의 자랑, 후배의 미래가 연결될 수 있도록.</span>
                     <strong>졸업생과 재학생을 잇는 네트워킹 서비스</strong>
-                    <div className="mt-3 flex items-center gap-3 pl-1 text-5xl">
+                    <div className="mt-3 flex items-center gap-4 pl-1 text-5xl">
                         <Image
                             src="/Group 483.svg"
                             alt="causw_app_icon"
                             width={50}
                             height={50}
+                            className="mt-[1px]"
                         />
-                        <strong>CAUSW</strong>
+                        <strong>
+                            <span className="text-[46px]">동네</span>: CAUSW
+                        </strong>
                     </div>
                 </div>
                 <Image

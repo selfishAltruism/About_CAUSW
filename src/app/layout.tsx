@@ -9,10 +9,12 @@ import { Monitor } from "lucide-react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "About CAUSW",
+    title: "About 동네: CAUSW",
     description:
-        "중앙대학교 소프트웨어학부에서 선배의 자랑, 후배의 미래가 연결될 수 있도록 졸업생과 재학생을 잇는 네트워킹 서비스, CAUSW 서비스",
+        "중앙대학교 소프트웨어학부에서 선배의 자랑, 후배의 미래가 연결될 수 있도록 졸업생과 재학생을 잇는 네트워킹 서비스, 동네: CAUSW 서비스",
     keywords: [
+        "동네",
+        "동네: CAUSW",
         "CAUSW",
         "동문네트워크",
         "중앙대학교",
@@ -22,6 +24,7 @@ export const metadata: Metadata = {
         "졸업생",
         "재학생",
         "ICT 위원회",
+        "학생회",
     ],
     icons: {
         icon: [
@@ -55,14 +58,14 @@ export default function RootLayout({
                     <span className="text-sm">중앙대학교 소프트웨어학부</span>
                     <span className="text-sm">졸업생 혹은 재학생이라면,</span>
                     <strong className="text-[17px]">
-                        CAUSW 서비스 바로가기
+                        동네: CAUSW 바로가기
                     </strong>
                 </a>
 
                 <div className="fixed z-[10000] flex h-screen w-screen flex-col items-center justify-center gap-2 bg-white text-[10px] xl:hidden">
                     <Monitor size={35} /> 모바일 뷰는 지원되지 않습니다.
                     <span className="absolute bottom-4 text-gray-400">
-                        CAUSW 서비스 지원된다고 하던데..{" "}
+                        동네: CAUSW는 지원된다고 하던데..{" "}
                         <a
                             href="https://causw.co.kr/"
                             className="text-blue-700 underline"
