@@ -12,10 +12,9 @@ import {
 } from "@/shared/shadcn/components/ui/carousel";
 
 import { CauswPanelHandle } from "@/entities/CauswPanelHandle";
-import { UnderConstructionBlock } from "@/entities/UnderConstructionBlock";
 import Video from "@/entities/Video";
-import { CauswFeaturePanelMobileCard } from "@/entities/CauswFeaturePanelMobileCard";
-import { CauswFeaturePanelPcCard } from "@/entities/CauswFeaturePanelPcCard";
+import { CauswFeaturePcPanelMobileCard } from "@/entities/CauswFeaturePcPanelMobileCard";
+import { CauswFeaturePcPanelPcCard } from "@/entities/CauswFeaturePcPanelPcCard";
 
 const ITEMS = [
     {
@@ -40,7 +39,7 @@ const ITEMS = [
             </>
         ),
         sub: "동문 수첩, 경조사 기능 지원",
-        content: <CauswFeaturePanelMobileCard step={1} />,
+        content: <CauswFeaturePcPanelMobileCard step={1} />,
     },
     {
         main: (
@@ -49,8 +48,8 @@ const ITEMS = [
                 위해,
             </>
         ),
-        sub: "중앙대학교 소프트웨어 학부 활동 지원",
-        content: <CauswFeaturePanelMobileCard step={2} />,
+        sub: "중앙대학교 소프트웨어학부 활동 지원",
+        content: <CauswFeaturePcPanelMobileCard step={2} />,
     },
     {
         main: (
@@ -60,7 +59,7 @@ const ITEMS = [
             </>
         ),
         sub: "게시판, 댓글을 넘어서 투표 기능 지원",
-        content: <CauswFeaturePanelMobileCard step={3} />,
+        content: <CauswFeaturePcPanelMobileCard step={3} />,
     },
     {
         main: (
@@ -70,11 +69,11 @@ const ITEMS = [
             </>
         ),
         sub: "중앙대학교 학부 졸업생 및 재학생 인증 시스템",
-        content: <CauswFeaturePanelPcCard step={4} />,
+        content: <CauswFeaturePcPanelPcCard step={4} />,
     },
 ];
 
-export const CauswFeaturePanel = () => {
+export const CauswFeaturePcPanel = () => {
     const [step, setStep] = useState(0);
     const [fade, setFade] = useState(true);
 

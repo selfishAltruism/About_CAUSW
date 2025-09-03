@@ -27,8 +27,54 @@ export default function Page({ params }: Props) {
 
     return (
         <ScrollArea className="h-screen w-full">
+            {/* Mobile */}
+            <Breadcrumb className="fixed bottom-4 left-0 z-20 flex w-screen justify-center lg:hidden">
+                <BreadcrumbList className="text-xs">
+                    <BreadcrumbItem>
+                        {year === "2024-1" ? (
+                            <BreadcrumbPage>2024-1</BreadcrumbPage>
+                        ) : (
+                            <BreadcrumbLink href="/member/2024-1">
+                                2024-1
+                            </BreadcrumbLink>
+                        )}
+                    </BreadcrumbItem>
+                    <BreadcrumbSeparator />
+                    <BreadcrumbItem>
+                        {year === "2024-2" ? (
+                            <BreadcrumbPage>2024-2</BreadcrumbPage>
+                        ) : (
+                            <BreadcrumbLink href="/member/2024-2">
+                                2024-2
+                            </BreadcrumbLink>
+                        )}
+                    </BreadcrumbItem>
+                    <BreadcrumbSeparator />
+                    <BreadcrumbItem>
+                        {year === "2025-1" ? (
+                            <BreadcrumbPage>2025-1</BreadcrumbPage>
+                        ) : (
+                            <BreadcrumbLink href="/member/2025-1">
+                                2025-1
+                            </BreadcrumbLink>
+                        )}
+                    </BreadcrumbItem>
+                    <BreadcrumbSeparator />
+                    <BreadcrumbItem>
+                        {year === "2025-2" ? (
+                            <BreadcrumbPage>2025-2</BreadcrumbPage>
+                        ) : (
+                            <BreadcrumbLink href="/member/2025-2">
+                                2025-2
+                            </BreadcrumbLink>
+                        )}
+                    </BreadcrumbItem>
+                </BreadcrumbList>
+            </Breadcrumb>
+
             <div className="flex h-full w-full flex-col items-center justify-center">
-                <Breadcrumb className="z-20 -mb-8 pt-7">
+                {/* PC */}
+                <Breadcrumb className="z-20 -mb-8 pt-7 max-lg:hidden">
                     <BreadcrumbList>
                         <BreadcrumbItem>
                             {year === "2024-1" ? (

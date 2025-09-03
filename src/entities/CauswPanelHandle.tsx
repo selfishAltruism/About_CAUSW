@@ -11,10 +11,10 @@ export const CauswPanelHandle = ({
     const startY = useRef(0);
     const lastY = useRef(0);
 
-    const isCauswFeaturePanelMode = mode === "CAUSW_FEATURE_PANEL";
+    const isCauswFeaturePcPanelMode = mode === "CAUSW_FEATURE_PANEL";
 
     const onPointerDown = (e: React.PointerEvent) => {
-        if (isCauswFeaturePanelMode) return;
+        if (isCauswFeaturePcPanelMode) return;
 
         isDragging.current = true;
         startY.current = e.clientY;
@@ -23,7 +23,7 @@ export const CauswPanelHandle = ({
     };
 
     const onPointerMove = (e: React.PointerEvent) => {
-        if (isCauswFeaturePanelMode || !isDragging.current) return;
+        if (isCauswFeaturePcPanelMode || !isDragging.current) return;
 
         const deltaY = e.clientY - lastY.current;
         lastY.current = e.clientY;
@@ -36,7 +36,7 @@ export const CauswPanelHandle = ({
     };
 
     const onPointerUp = (e: React.PointerEvent) => {
-        if (isCauswFeaturePanelMode) return;
+        if (isCauswFeaturePcPanelMode) return;
 
         isDragging.current = false;
         (e.target as HTMLElement).releasePointerCapture(e.pointerId);
@@ -45,13 +45,13 @@ export const CauswPanelHandle = ({
     return (
         <button
             className={
-                (isCauswFeaturePanelMode
+                (isCauswFeaturePcPanelMode
                     ? "top-[10px] bg-black/10 "
                     : "bottom-[10px] bg-white/40 ") +
-                "absolute left-1/4 h-2 w-1/2 cursor-grab rounded-full active:cursor-grabbing"
+                "absolute left-1/4 h-2 w-1/2 cursor-grab rounded-full active:cursor-grabbing max-lg:hidden"
             }
             onClick={() => {
-                if (isCauswFeaturePanelMode) {
+                if (isCauswFeaturePcPanelMode) {
                     window.scrollBy({
                         top: -window.innerHeight,
                         left: 0,

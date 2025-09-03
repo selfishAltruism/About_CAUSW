@@ -35,9 +35,7 @@ const CONTENT: { mainContent: ReactNode; subContent: ReactNode }[] = [
                 <span>직접 찾아서 확인해야 되는 불편한 공지 대신,</span>
                 <span>Web Crawling 기반으로 빠르게 정리한</span>
                 <strong className="text-[17px]">
-                    <span className="text-sub">
-                        소프트웨어학부 학부 공지 게시판
-                    </span>
+                    <span className="text-sub">소프트웨어학부 공지 게시판</span>
                 </strong>
             </>
         ),
@@ -75,7 +73,7 @@ const CONTENT: { mainContent: ReactNode; subContent: ReactNode }[] = [
     { mainContent: null, subContent: null },
 ];
 
-export const CauswFeaturePanelMobileCard = ({ step }: { step: number }) => {
+export const CauswFeaturePcPanelMobileCard = ({ step }: { step: number }) => {
     /* const [firstCardIndex, setFirstCardIndex] = useState(0); */
 
     return (

@@ -6,7 +6,12 @@ export const UnderConstructionBlock = ({
     className?: string;
 }) => {
     return (
-        <div className={"left-1/2 top-1/2 flex text-[#acacac] " + className}>
+        <div
+            className={
+                "left-1/2 top-1/2 flex items-end text-[#acacac] max-lg:text-xs " +
+                className
+            }
+        >
             <Construction />
             <Construction className="mr-2" />
             Under Construction...

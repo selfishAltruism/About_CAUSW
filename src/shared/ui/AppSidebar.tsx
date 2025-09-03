@@ -18,7 +18,7 @@ const items = [
     {
         title: (
             <>
-                What is <span className="text-sub">동네: CAUSW</span>?
+                What is <strong>동네: CAUSW?</strong>
             </>
         ),
         url: "/",
@@ -27,7 +27,7 @@ const items = [
     {
         title: (
             <>
-                Who is Making<span className="text-sub"> 동네: CAUSW</span>?
+                Who made <strong>동네: CAUSW?</strong>?
             </>
         ),
         url: "/member/2025-1",
@@ -49,7 +49,9 @@ export function AppSidebar() {
         <Sidebar variant="floating">
             <SidebarContent>
                 <SidebarGroup>
-                    <SidebarGroupLabel>About 동네: CAUSW</SidebarGroupLabel>
+                    <SidebarGroupLabel className="text-sub">
+                        About 동네: CAUSW
+                    </SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
                             {items.map((item) => (

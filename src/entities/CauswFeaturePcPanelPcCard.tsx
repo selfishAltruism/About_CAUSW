@@ -28,7 +28,7 @@ const CONTENT: { mainContent: ReactNode; subContent: ReactNode }[] = [
     },
 ];
 
-export const CauswFeaturePanelPcCard = ({ step }: { step: number }) => {
+export const CauswFeaturePcPanelPcCard = ({ step }: { step: number }) => {
     /* const [firstCardIndex, setFirstCardIndex] = useState(0); */
 
     return (
