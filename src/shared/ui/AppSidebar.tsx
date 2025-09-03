@@ -18,7 +18,7 @@ const items = [
     {
         title: (
             <>
-                What is <strong>동네: CAUSW?</strong>
+                What is <strong>동네: CAUSW</strong>?
             </>
         ),
         url: "/",
@@ -27,7 +27,7 @@ const items = [
     {
         title: (
             <>
-                Who made <strong>동네: CAUSW?</strong>?
+                Who made <strong>동네: CAUSW</strong>?
             </>
         ),
         url: "/member/2025-1",

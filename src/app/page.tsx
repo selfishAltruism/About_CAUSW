@@ -20,9 +20,9 @@ export default function Home() {
                             width={50}
                             height={50}
                             className="mt-[1px] max-lg:hidden"
-                            style={{
+                            /* style={{
                                 filter: "drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3))",
-                            }}
+                            }} */
                         />
 
                         {/* Mobile */}
@@ -32,9 +32,9 @@ export default function Home() {
                             width={65}
                             height={65}
                             className="mt-[1px] lg:hidden"
-                            style={{
+                            /* style={{
                                 filter: "drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3))",
-                            }}
+                            }} */
                         />
                         <strong>
                             <span className="lg:text-[46px]">동네</span>: CAUSW
