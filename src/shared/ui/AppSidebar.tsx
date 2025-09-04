@@ -1,4 +1,4 @@
-import { Home, User2, Building2, Map } from "lucide-react";
+import { Home, User2, Building2, Map, Github } from "lucide-react";
 import Link from "next/link";
 
 import {
@@ -72,6 +72,17 @@ export function AppSidebar() {
                 </SidebarGroup>
             </SidebarContent>
             <SidebarFooter>
+                {/* <SidebarMenuButton asChild className="text-gray-400">
+                    <a
+                        href="https://github.com/CAUCSE"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <Github />
+                        <span>Team Organizations</span>
+                    </a>
+                </SidebarMenuButton> */}
+
                 <SidebarMenuButton asChild className="text-gray-400">
                     <a
                         href="https://github.com/selfishAltruism"

@@ -482,7 +482,7 @@ function ProfileUnit({
                                 href={`https://github.com/${gh}`}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="underline underline-offset-2 hover:opacity-80"
+                                className="relative z-50 underline underline-offset-2 hover:opacity-80"
                                 aria-label={`${person.name}의 GitHub 프로필로 이동`}
                             >
                                 @{gh}
