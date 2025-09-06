@@ -16,6 +16,7 @@ import {
     AvatarImage,
     AvatarFallback,
 } from "@/shared/shadcn/components/ui/avatar";
+import Image from "next/image";
 
 /* ===================== 타입 ===================== */
 export type Person = {
@@ -313,8 +314,31 @@ export default function TeamOrgFullScreen({
                     className="relative w-full max-w-[520px] justify-self-end"
                     variants={popV}
                 >
-                    <div className="absolute -right-[90px] font-medium text-muted-foreground">
+                    <div className="absolute -right-[140px] flex flex-col font-medium text-muted-foreground">
                         Front-end Team
+                        <div className="mt-1 flex w-full items-center justify-center gap-2">
+                            {!feLead.id.includes("2024-1") && (
+                                <Image
+                                    src="/tech/nextjs-icon.svg"
+                                    alt="next.js"
+                                    width={19}
+                                    height={19}
+                                />
+                            )}
+                            <Image
+                                src="/tech/language-typescript.svg"
+                                alt="next.js"
+                                width={22}
+                                height={22}
+                            />
+                            <Image
+                                src="/tech/react.png"
+                                alt="next.js"
+                                className="-ml-[6px] -mr-[6px]"
+                                width={27}
+                                height={27}
+                            />
+                        </div>
                     </div>
 
                     <div className="flex items-start justify-end gap-6">
@@ -360,8 +384,28 @@ export default function TeamOrgFullScreen({
                     className="relative w-full max-w-[520px] justify-self-start"
                     variants={popV}
                 >
-                    <div className="absolute -left-[113px] mb-2 font-medium text-muted-foreground">
+                    <div className="absolute -left-[163px] mb-2 flex flex-col font-medium text-muted-foreground">
                         Back-end Team
+                        <div className="mt-1 flex w-full items-center justify-center gap-3">
+                            <Image
+                                src="/tech/java-logo.png"
+                                alt="next.js"
+                                width={21}
+                                height={21}
+                            />
+                            <Image
+                                src="/tech/spring.png"
+                                alt="next.js"
+                                width={19}
+                                height={19}
+                            />
+                            <Image
+                                src="/tech/logo_aws_icon_160734.png"
+                                alt="next.js"
+                                width={23}
+                                height={23}
+                            />
+                        </div>
                     </div>
 
                     <div className="flex items-start justify-start gap-6">
@@ -398,32 +442,34 @@ export default function TeamOrgFullScreen({
             </motion.div>
 
             {/* PD: 컨테이너 기준 절대 위치 */}
-            <motion.div
-                className="pointer-events-none absolute left-0 right-0"
-                style={{ top: pdTop }}
-                variants={popV}
-                initial="hidden"
-                animate="show"
-            >
-                <div className="pointer-events-auto">
-                    <div className="mb-5 text-center font-medium text-muted-foreground">
-                        Planning / Design Team
+            {pdMembers.length > 0 && (
+                <motion.div
+                    className="pointer-events-none absolute left-0 right-0"
+                    style={{ top: pdTop }}
+                    variants={popV}
+                    initial="hidden"
+                    animate="show"
+                >
+                    <div className="pointer-events-auto">
+                        <div className="mb-5 text-center font-medium text-muted-foreground">
+                            Planning / Design Team
+                        </div>
+                        <div className="flex items-center justify-center gap-6">
+                            {pdMembers.map((m) => (
+                                <motion.div key={m.id} variants={popV}>
+                                    <ProfileUnit
+                                        person={m}
+                                        size="member"
+                                        avatarRef={(el) => {
+                                            pdMemberRefs.current[m.id] = el;
+                                        }}
+                                    />
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
-                    <div className="flex items-center justify-center gap-6">
-                        {pdMembers.map((m) => (
-                            <motion.div key={m.id} variants={popV}>
-                                <ProfileUnit
-                                    person={m}
-                                    size="member"
-                                    avatarRef={(el) => {
-                                        pdMemberRefs.current[m.id] = el;
-                                    }}
-                                />
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </motion.div>
+                </motion.div>
+            )}
         </div>
     );
 }

@@ -17,7 +17,7 @@ const CONTENT: { mainContent: ReactNode; subContent: ReactNode }[] = [
         ),
         subContent: (
             <>
-                <span>중앙대학교 소프트웨어학과 입학년도, 학번 기반</span>
+                <span>입학년도, 학번 기반</span>
                 <strong className="text-[17px]">
                     <span className="text-sub">회원가입</span>
                 </strong>

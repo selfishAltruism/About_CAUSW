@@ -4,7 +4,7 @@ import {
     ScrollArea,
     ScrollBar,
 } from "@/shared/shadcn/components/ui/scroll-area";
-import { TEAM_2025_1 } from "@/shared/const/member";
+import { TEAM_2025_1, TEAM_2024_1, TEAM_2024_2 } from "@/shared/const/member";
 import {
     Breadcrumb,
     BreadcrumbItem,
@@ -16,8 +16,6 @@ import {
 
 import TeamOrgFullScreen from "@/entities/member/TeamOrgFullScreen";
 
-import { UnderConstructionBlock } from "@/shared/ui/UnderConstructionBlock";
-
 type Props = { params: { year: string } };
 
 const SEASON_LIST = ["2024-1", "2024-2", "2025-1", "2025-2"];
@@ -25,7 +23,12 @@ const SEASON_LIST = ["2024-1", "2024-2", "2025-1", "2025-2"];
 export default function Page({ params }: Props) {
     const { year } = params;
 
-    const team = TEAM_2025_1; // TODO: 2024 추가 필요.
+    const team =
+        year === "2025-1"
+            ? TEAM_2025_1
+            : year === "2024-2"
+              ? TEAM_2024_2
+              : TEAM_2024_1;
 
     return (
         <ScrollArea className="h-screen w-full">
@@ -85,16 +88,7 @@ export default function Page({ params }: Props) {
                         ))}
                     </BreadcrumbList>
                 </Breadcrumb>
-                {year === "2025-1" ? (
-                    <TeamOrgFullScreen
-                        pm={team.pm}
-                        feLead={team.fe.lead}
-                        feMembers={team.fe.members}
-                        beLead={team.be.lead}
-                        beMembers={team.be.members}
-                        pdMembers={team.pd.members}
-                    />
-                ) : year === "2025-2" ? (
+                {year === "2025-2" ? (
                     <div className="flex h-[93vh] flex-col items-center justify-center gap-3">
                         <Image
                             src="/recruiting_img.png"
@@ -113,9 +107,14 @@ export default function Page({ params }: Props) {
                         </span>
                     </div>
                 ) : (
-                    <div className="flex h-[calc(100vh-50px)] w-full items-center justify-center">
-                        <UnderConstructionBlock />
-                    </div>
+                    <TeamOrgFullScreen
+                        pm={team.pm}
+                        feLead={team.fe.lead}
+                        feMembers={team.fe.members}
+                        beLead={team.be.lead}
+                        beMembers={team.be.members}
+                        pdMembers={team.pd.members}
+                    />
                 )}
             </div>
             <ScrollBar orientation="horizontal" />
