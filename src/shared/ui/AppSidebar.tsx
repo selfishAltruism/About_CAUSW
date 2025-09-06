@@ -1,5 +1,9 @@
-import { Home, User2, Building2, Map, Github } from "lucide-react";
+"use client";
+
+import { User2, Building2, Map, Github, Instagram } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 import {
     Sidebar,
@@ -12,46 +16,46 @@ import {
     SidebarMenuItem,
     SidebarFooter,
 } from "@/shared/shadcn/components/ui/sidebar";
+import { cn } from "../shadcn/lib/utils";
 
 // Menu items.
 const items = [
     {
-        title: (
-            <>
-                What is <strong>동네: CAUSW</strong>?
-            </>
-        ),
+        title: <>What is 동네: CAUSW?</>,
         url: "/",
-        icon: Map,
+        icon: (
+            <Image
+                src="/Group 483.svg"
+                alt="causw_app_icon"
+                width={20}
+                height={20}
+                className="-ml-[2px] -mr-[2px]"
+            />
+        ),
     },
     {
-        title: (
-            <>
-                Who made <strong>동네: CAUSW</strong>?
-            </>
-        ),
+        title: <>Who made?</>,
         url: "/member/2025-1",
-        icon: User2,
+        icon: <User2 />,
     },
-    /*     {
-        title: (
-            <>
-                Who <span className="text-sub"> Supported</span> CAUSW?
-            </>
-        ),
+    {
+        title: <>Who Supported?</>,
         url: "/ccssaa",
-        icon: Building2,
-    }, */
+        icon: <Building2 />,
+    },
 ];
 
 export function AppSidebar() {
+    const pathname = usePathname();
+    const segments = pathname.split("/").filter(Boolean);
+
+    console.log("/" + segments[0]);
+
     return (
         <Sidebar variant="floating">
             <SidebarContent>
                 <SidebarGroup>
-                    <SidebarGroupLabel className="text-sub">
-                        About 동네: CAUSW
-                    </SidebarGroupLabel>
+                    <SidebarGroupLabel>About 동네: CAUSW</SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
                             {items.map((item) => (
@@ -59,9 +63,16 @@ export function AppSidebar() {
                                     <SidebarMenuButton asChild>
                                         <Link
                                             href={item.url}
-                                            className="text-[13px]"
+                                            className={cn(
+                                                "text-[13px]",
+                                                (segments[0] ?? "") ===
+                                                    (item.url
+                                                        .split("/")
+                                                        .filter(Boolean)[0] ??
+                                                        "") && "!text-sub",
+                                            )}
                                         >
-                                            <item.icon />
+                                            {item.icon}
                                             <span>{item.title}</span>
                                         </Link>
                                     </SidebarMenuButton>
@@ -72,17 +83,26 @@ export function AppSidebar() {
                 </SidebarGroup>
             </SidebarContent>
             <SidebarFooter>
-                {/* <SidebarMenuButton asChild className="text-gray-400">
+                <SidebarMenuButton asChild className="text-gray-400">
                     <a
                         href="https://github.com/CAUCSE"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
                         <Github />
-                        <span>Team Organizations</span>
+                        Team Organizations.
                     </a>
-                </SidebarMenuButton> */}
-
+                </SidebarMenuButton>
+                <SidebarMenuButton asChild className="text-gray-400">
+                    <a
+                        href="https://www.instagram.com/causwcse_dongne/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <Instagram />
+                        Team Instagram.
+                    </a>
+                </SidebarMenuButton>
                 <SidebarMenuButton asChild className="text-gray-400">
                     <a
                         href="https://github.com/selfishAltruism"

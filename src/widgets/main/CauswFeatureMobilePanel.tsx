@@ -1,4 +1,4 @@
-import Video from "@/entities/Video";
+import Video from "@/shared/ui/Video";
 import Image from "next/image";
 
 const ITEMS = [
@@ -25,7 +25,7 @@ const ITEMS = [
                 이어질 수 있도록
             </>
         ),
-        sub: "중앙대학교 소프트웨어학부의 동문 수첩",
+        sub: "중앙대학교 소프트웨어학과의 동문 수첩",
         content: (
             <div className="flex w-full justify-center gap-3">
                 <Image
@@ -76,11 +76,11 @@ const ITEMS = [
         idx: 3,
         main: (
             <>
-                재학생의 <span className="text-sub">안정적인 학부 활동</span>을
+                재학생의 <span className="text-sub">안정적인 학과 활동</span>을
                 위해
             </>
         ),
-        sub: "Web Crawling 기반 학부 공지 정리",
+        sub: "Web Crawling 기반 학과 공지 정리",
         content: (
             <div className="flex w-full justify-center gap-3">
                 <Image
@@ -213,7 +213,7 @@ const ITEMS = [
 
 export const CauswFeatureMobilePanel = () => {
     return (
-        <div className="absolute top-[100vh] flex w-full flex-col gap-2 pt-12 lg:hidden">
+        <div className="absolute top-[100vh] flex w-full flex-col gap-2 pt-20 lg:hidden">
             {ITEMS.map((item) => (
                 <div className="flex flex-col p-4" key={item.sub}>
                     {item.idx && (

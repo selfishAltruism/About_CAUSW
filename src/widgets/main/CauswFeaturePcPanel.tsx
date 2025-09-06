@@ -11,10 +11,10 @@ import {
     CarouselPrevious,
 } from "@/shared/shadcn/components/ui/carousel";
 
-import { CauswPanelHandle } from "@/entities/CauswPanelHandle";
-import Video from "@/entities/Video";
-import { CauswFeaturePcPanelMobileCard } from "@/entities/CauswFeaturePcPanelMobileCard";
-import { CauswFeaturePcPanelPcCard } from "@/entities/CauswFeaturePcPanelPcCard";
+import { CauswPanelHandle } from "@/entities/main/CauswPanelHandle";
+import Video from "@/shared/ui/Video";
+import { CauswFeaturePcPanelMobileCard } from "@/entities/main/CauswFeaturePcPanelMobileCard";
+import { CauswFeaturePcPanelPcCard } from "@/entities/main/CauswFeaturePcPanelPcCard";
 
 const ITEMS = [
     {
@@ -44,11 +44,11 @@ const ITEMS = [
     {
         main: (
             <>
-                재학생의 <span className="text-sub">안정적인 학부 활동</span>을
+                재학생의 <span className="text-sub">안정적인 학과 활동</span>을
                 위해,
             </>
         ),
-        sub: "중앙대학교 소프트웨어학부 활동 지원",
+        sub: "중앙대학교 소프트웨어학과 활동 지원",
         content: <CauswFeaturePcPanelMobileCard step={2} />,
     },
     {
@@ -68,7 +68,7 @@ const ITEMS = [
                 있도록,
             </>
         ),
-        sub: "중앙대학교 학부 졸업생 및 재학생 인증 시스템",
+        sub: "중앙대학교 소프트웨어학과 졸업생 및 재학생 인증 시스템",
         content: <CauswFeaturePcPanelPcCard step={4} />,
     },
 ];

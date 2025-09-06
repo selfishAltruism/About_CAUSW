@@ -400,7 +400,7 @@ const SidebarFooter = React.forwardRef<
         <div
             ref={ref}
             data-sidebar="footer"
-            className={cn("flex flex-col gap-2 p-2", className)}
+            className={cn("flex flex-col gap-0 p-2", className)}
             {...props}
         />
     );
@@ -522,7 +522,7 @@ const SidebarMenu = React.forwardRef<
     <ul
         ref={ref}
         data-sidebar="menu"
-        className={cn("flex w-full min-w-0 flex-col gap-1", className)}
+        className={cn("flex w-full min-w-0 flex-col gap-0", className)}
         {...props}
     />
 ));

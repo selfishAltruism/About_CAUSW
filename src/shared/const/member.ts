@@ -1,4 +1,4 @@
-import { Person } from "../ui/TeamOrgFullScreen";
+import { Person } from "../../entities/member/TeamOrgFullScreen";
 
 export const TEAM_2025_1 = {
     pm: {
@@ -14,7 +14,7 @@ export const TEAM_2025_1 = {
                 id: "pd1",
                 name: "정보운",
                 github: "",
-                domains: ["기획 / 디자인", "UX 설계"],
+                domains: ["Web", "UX 설계"],
             },
             {
                 id: "pd2",

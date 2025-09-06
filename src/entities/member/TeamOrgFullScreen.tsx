@@ -406,7 +406,7 @@ export default function TeamOrgFullScreen({
                 animate="show"
             >
                 <div className="pointer-events-auto">
-                    <div className="mb-2 text-center font-medium text-muted-foreground">
+                    <div className="mb-5 text-center font-medium text-muted-foreground">
                         Planning / Design Team
                     </div>
                     <div className="flex items-center justify-center gap-6">

@@ -1,7 +1,5 @@
-"use client";
-
 import Image from "next/image";
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 
 const CONTENT: { mainContent: ReactNode; subContent: ReactNode }[] = [
     { mainContent: null, subContent: null },
@@ -12,7 +10,7 @@ const CONTENT: { mainContent: ReactNode; subContent: ReactNode }[] = [
                 <span>선배에게 도움을 요청할 수 있도록.</span>
 
                 <strong className="text-[17px]">
-                    중앙대학교 소프트웨어학부의
+                    중앙대학교 소프트웨어학과의
                     <span className="text-sub"> 동문 수첩</span>
                 </strong>
             </>
@@ -35,14 +33,14 @@ const CONTENT: { mainContent: ReactNode; subContent: ReactNode }[] = [
                 <span>직접 찾아서 확인해야 되는 불편한 공지 대신,</span>
                 <span>Web Crawling 기반으로 빠르게 정리한</span>
                 <strong className="text-[17px]">
-                    <span className="text-sub">소프트웨어학부 공지 게시판</span>
+                    <span className="text-sub">소프트웨어학과 공지 게시판</span>
                 </strong>
             </>
         ),
         subContent: (
             <>
                 <span>학생회의 열정적인 행사와</span>
-                <span>나만의 학부 건물 사물함을 관리할 수 있는</span>
+                <span>나만의 학과 건물 사물함을 관리할 수 있는</span>
                 <strong className="text-[17px]">
                     <span className="text-sub">학생회 공지 게시판 </span>&
                     <span className="text-sub"> 사물함 관리 기능</span>
@@ -63,7 +61,7 @@ const CONTENT: { mainContent: ReactNode; subContent: ReactNode }[] = [
         ),
         subContent: (
             <>
-                <span>학부 내부 많은 목소리를 듣기 위해서</span>
+                <span>학과 내부 많은 목소리를 듣기 위해서</span>
                 <strong className="text-[17px]">
                     <span className="text-sub">투표, 익명 댓글 </span> 지원
                 </strong>
@@ -74,8 +72,6 @@ const CONTENT: { mainContent: ReactNode; subContent: ReactNode }[] = [
 ];
 
 export const CauswFeaturePcPanelMobileCard = ({ step }: { step: number }) => {
-    /* const [firstCardIndex, setFirstCardIndex] = useState(0); */
-
     return (
         <div className="flex h-full w-full gap-5">
             <div className="flex flex-1 flex-col items-end justify-center gap-3">

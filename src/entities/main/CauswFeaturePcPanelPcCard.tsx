@@ -1,7 +1,5 @@
-"use client";
-
 import Image from "next/image";
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 
 const CONTENT: { mainContent: ReactNode; subContent: ReactNode }[] = [
     { mainContent: null, subContent: null },
@@ -29,8 +27,6 @@ const CONTENT: { mainContent: ReactNode; subContent: ReactNode }[] = [
 ];
 
 export const CauswFeaturePcPanelPcCard = ({ step }: { step: number }) => {
-    /* const [firstCardIndex, setFirstCardIndex] = useState(0); */
-
     return (
         <div className="flex h-full w-full gap-5">
             <div className="flex flex-1 flex-col items-end justify-center gap-3">
