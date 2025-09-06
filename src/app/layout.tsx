@@ -74,19 +74,6 @@ export default function RootLayout({
                     <strong className="text-xs">동네: CAUSW 바로가기</strong>
                 </a>
 
-                {/* <div className="fixed z-[10000] flex h-screen w-screen flex-col items-center justify-center gap-2 bg-white text-[10px] xl:hidden">
-                    <Monitor size={35} /> 모바일 뷰는 지원되지 않습니다.
-                    <span className="absolute bottom-4 text-gray-400">
-                        동네: CAUSW는 지원된다고 하던데..{" "}
-                        <a
-                            href="https://causw.co.kr/"
-                            className="text-blue-700 underline"
-                        >
-                            바로가기
-                        </a>
-                    </span>
-                </div> */}
-
                 <SidebarProvider>
                     <SidebarTrigger className="fixed left-3 top-3 z-30 h-[32px] w-[32px] bg-sub text-white active:bg-[#388cf9] active:text-white lg:hidden" />
                     <AppSidebar />

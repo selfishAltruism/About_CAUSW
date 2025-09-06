@@ -1,6 +1,6 @@
 "use client";
 
-import { User2, Building2, Map, Github, Instagram } from "lucide-react";
+import { User2, Building2, Github, Instagram } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -40,7 +40,7 @@ const items = [
     },
     {
         title: <>Who Supported?</>,
-        url: "/ccssaa",
+        url: "/support",
         icon: <Building2 />,
     },
 ];
@@ -83,7 +83,7 @@ export function AppSidebar() {
                 </SidebarGroup>
             </SidebarContent>
             <SidebarFooter>
-                <SidebarMenuButton asChild className="text-gray-400">
+                <SidebarMenuButton asChild className="text-gray-500">
                     <a
                         href="https://github.com/CAUCSE"
                         target="_blank"
@@ -93,7 +93,7 @@ export function AppSidebar() {
                         Team Organizations.
                     </a>
                 </SidebarMenuButton>
-                <SidebarMenuButton asChild className="text-gray-400">
+                <SidebarMenuButton asChild className="text-gray-500">
                     <a
                         href="https://www.instagram.com/causwcse_dongne/"
                         target="_blank"
@@ -103,7 +103,7 @@ export function AppSidebar() {
                         Team Instagram.
                     </a>
                 </SidebarMenuButton>
-                <SidebarMenuButton asChild className="text-gray-400">
+                <SidebarMenuButton asChild className="text-gray-500">
                     <a
                         href="https://github.com/selfishAltruism"
                         target="_blank"

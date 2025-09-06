@@ -11,13 +11,13 @@ const CONTENT: { mainContent: ReactNode; subContent: ReactNode }[] = [
             <>
                 <span>증명 자료, 학적 상태 확인을 통한</span>
                 <strong className="text-[17px]">
-                    철저한 <span className="text-sub">인증 과정</span>
+                    안전한 <span className="text-sub">인증 과정</span>
                 </strong>
             </>
         ),
         subContent: (
             <>
-                <span>입학년도, 학번 기반</span>
+                <span>중앙대학교 소프트웨어학과 입학년도, 학번 기반</span>
                 <strong className="text-[17px]">
                     <span className="text-sub">회원가입</span>
                 </strong>

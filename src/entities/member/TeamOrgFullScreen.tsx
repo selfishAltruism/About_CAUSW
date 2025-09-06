@@ -459,7 +459,7 @@ function ProfileUnit({
 
     return (
         <div className="flex flex-col items-center gap-2">
-            <div ref={avatarRef} className="rounded-full ring-1 ring-border">
+            <div ref={avatarRef} className="rounded-full ring-1 ring-gray-400">
                 <Avatar className={avatarClass}>
                     {person.avatarUrl ? (
                         <AvatarImage src={person.avatarUrl} alt={person.name} />

@@ -8,7 +8,7 @@ export const UnderConstructionBlock = ({
     return (
         <div
             className={
-                "left-1/2 top-1/2 flex items-end text-[#acacac] max-lg:text-xs " +
+                "left-1/2 top-1/2 flex items-end text-gray-500 max-lg:text-xs " +
                 className
             }
         >
