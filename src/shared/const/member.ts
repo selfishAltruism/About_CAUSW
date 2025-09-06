@@ -242,11 +242,9 @@ export const TEAM_2024_1 = {
         avatarUrl: "/avatar/sanggae4133.jpg",
         domains: [
             "PM",
-            "인증/인가",
+            "BE 인증/인가",
             "유저 관리",
-            "학적 상태 관리",
-
-            "Hexagonal Archi",
+            "Hexagonal 아키텍처",
             "DB Schema",
         ],
     } as Person,
@@ -262,8 +260,7 @@ export const TEAM_2024_1 = {
                 "CI/CD",
                 "사물함",
                 "홈",
-                "BE CI/CD",
-                "Hexagonal Archi",
+                "Hexagonal 아키텍처",
                 "DB Schema",
             ],
         } as Person,
