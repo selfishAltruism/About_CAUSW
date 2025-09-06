@@ -126,14 +126,14 @@ export const FlowingLogos = () => {
                 gapPx={40}
                 speedPxPerSec={120}
                 scale={1}
-                containerClass="fixed top-16 max-lg:hidden"
+                containerClass="absolute top-16 max-lg:hidden"
             />
             <MarqueeRow
                 logos={LOGOS}
                 gapPx={40}
                 speedPxPerSec={120}
                 scale={1}
-                containerClass="fixed bottom-16 max-lg:hidden"
+                containerClass="absolute bottom-16 max-lg:hidden"
             />
 
             <MarqueeRow
@@ -141,14 +141,14 @@ export const FlowingLogos = () => {
                 gapPx={24} // 모바일 간격 약간 축소 예시
                 speedPxPerSec={100} // 모바일 속도 약간 완화
                 scale={0.5}
-                containerClass="fixed top-24 lg:hidden"
+                containerClass="absolute top-24 lg:hidden"
             />
             <MarqueeRow
                 logos={LOGOS}
                 gapPx={24}
                 speedPxPerSec={100}
                 scale={0.5}
-                containerClass="fixed bottom-24 lg:hidden"
+                containerClass="absolute bottom-24 lg:hidden"
             />
         </>
     );

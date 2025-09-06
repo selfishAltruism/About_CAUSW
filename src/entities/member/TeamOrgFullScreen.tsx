@@ -314,7 +314,7 @@ export default function TeamOrgFullScreen({
                     className="relative w-full max-w-[520px] justify-self-end"
                     variants={popV}
                 >
-                    <div className="absolute -right-[140px] flex flex-col font-medium text-muted-foreground">
+                    <div className="absolute -right-[140px] flex flex-col font-bold text-muted-foreground">
                         Front-end Team
                         <div className="mt-1 flex w-full items-center justify-center gap-2">
                             {!feLead.id.includes("2024-1") && (
@@ -384,7 +384,7 @@ export default function TeamOrgFullScreen({
                     className="relative w-full max-w-[520px] justify-self-start"
                     variants={popV}
                 >
-                    <div className="absolute -left-[163px] mb-2 flex flex-col font-medium text-muted-foreground">
+                    <div className="absolute -left-[163px] mb-2 flex flex-col font-bold text-muted-foreground">
                         Back-end Team
                         <div className="mt-1 flex w-full items-center justify-center gap-3">
                             <Image
@@ -451,7 +451,7 @@ export default function TeamOrgFullScreen({
                     animate="show"
                 >
                     <div className="pointer-events-auto">
-                        <div className="mb-5 text-center font-medium text-muted-foreground">
+                        <div className="mb-5 text-center font-bold text-muted-foreground">
                             Planning / Design Team
                         </div>
                         <div className="flex items-center justify-center gap-6">
@@ -546,7 +546,7 @@ function ProfileUnit({
                         <Badge
                             key={i}
                             variant="secondary"
-                            className="bg-sub px-1.5 py-0 text-white hover:bg-sub"
+                            className="whitespace-nowrap bg-sub px-1.5 py-0.5 text-center text-white hover:bg-sub"
                         >
                             {d}
                         </Badge>
