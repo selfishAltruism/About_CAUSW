@@ -251,7 +251,7 @@ export const TEAM_2024_1 = {
             "PM",
             "학적상태 관리",
             "학생회비",
-            "Hexagonal 아키텍처",
+            "BE 아키텍처 설계",
             "DB Schema",
         ],
     } as Person,
@@ -263,13 +263,7 @@ export const TEAM_2024_1 = {
             id: "be1-2024-1",
             name: "조명근",
             github: "realisshomyang",
-            domains: [
-                "CI/CD",
-                "사물함",
-                "홈",
-                "Hexagonal 아키텍처",
-                "DB Schema",
-            ],
+            domains: ["CI/CD", "사물함", "홈", "BE 아키텍처 설계", "DB Schema"],
         } as Person,
         members: [
             {
