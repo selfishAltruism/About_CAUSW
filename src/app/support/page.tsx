@@ -5,7 +5,7 @@ export default function Page() {
         <>
             <FlowingLogos />
 
-            <main className="flex h-screen w-full flex-col items-center justify-center gap-5">
+            <main className="flex w-full flex-col items-center justify-center gap-5">
                 {/* 본문 텍스트 */}
                 <span className="text-center text-sm lg:text-lg">
                     <strong>동네: CAUSW</strong>는 <br className="lg:hidden" />

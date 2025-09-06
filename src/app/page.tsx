@@ -8,7 +8,7 @@ export default function Home() {
     return (
         <main className="relative flex w-full flex-col">
             <div className="absolute top-0 z-20 flex h-[calc(100vh+50px)] w-screen items-center justify-center bg-sub lg:left-[-256px] lg:z-[9998] lg:h-screen lg:w-[calc(100vw-8px)]">
-                <div className="z-30 flex flex-col items-center text-sm text-white max-lg:mb-12 lg:z-[9999] lg:gap-1 lg:text-[20.5px]">
+                <div className="z-30 flex flex-col items-center text-sm text-white max-lg:mb-20 lg:z-[9999] lg:gap-1 lg:text-[20.5px]">
                     <span>중앙대학교 소프트웨어학과에서</span>
                     <span>선배의 자랑, 후배의 미래가 연결될 수 있도록.</span>
                     <strong>졸업생과 재학생을 잇는 네트워킹 서비스</strong>
