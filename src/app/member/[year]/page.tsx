@@ -34,7 +34,7 @@ export default function Page({ params }: Props) {
         <ScrollArea className="h-screen w-full">
             {/* Mobile */}
             <Breadcrumb className="fixed bottom-4 left-0 z-20 flex w-screen justify-center lg:hidden">
-                <BreadcrumbList className="text-xs">
+                <BreadcrumbList className="gap-[2px] text-xs">
                     <BreadcrumbPage className="mr-1 font-bold">
                         CAUSW ICT 위원회
                     </BreadcrumbPage>
